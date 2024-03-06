@@ -89,14 +89,15 @@ formulario.addEventListener("submit", function (evento) {
   const { nombre, email, mensaje } = datos;
 
   if (nombre === "" || email === "" || mensaje === "") {
-    mostrarError("Todos los campos son obligatorios");
+    //mostrarError("Todos los campos son obligatorios");
+    mostrarAlerta("Todos los campos son obligatorios", "error");
 
     return; //Corta la ejecucion del codigo
   }
 
   // Crear la alerta de enviar correctamente
-
-  mostrarCorrecto("Mensaje enviado Correctamente");
+  //mostrarCorrecto("Mensaje enviado Correctamente");
+  mostrarAlerta("Todos los campos son obligatorios");
 });
 
 function leerTexto(e) {
@@ -108,30 +109,48 @@ function leerTexto(e) {
   //console.log(datos);
 }
 
-// Mostrar una alerta de que se envio correctamente
-function mostrarCorrecto(mensaje) {
+function mostrarAlerta(mensaje, error = null) {
   const alerta = document.createElement("P");
   alerta.textContent = mensaje;
-  alerta.classList.add("correcto");
+
+  if (error) {
+    alerta.classList.add("error");
+  } else {
+    alerta.classList.add("correcto");
+  }
 
   formulario.appendChild(alerta);
 
   // Desaparezca despues de 5 segundos
   setTimeout(() => {
-    error.remove();
+    alerta.remove();
   }, 5000);
 }
 
-//Muestra un error en pantalla
-function mostrarError(mensaje) {
-  const error = document.createElement("P");
-  error.textContent = mensaje;
-  error.classList.add("error");
+// Mostrar una alerta de que se envio correctamente
+//function mostrarCorrecto(mensaje) {
+  //const alerta = document.createElement("P");
+  //alerta.textContent = mensaje;
+  //alerta.classList.add("correcto");
 
-  formulario.appendChild(error);
+  //formulario.appendChild(alerta);
 
   // Desaparezca despues de 5 segundos
-  setTimeout(() => {
-    error.remove();
-  }, 5000);
-}
+//   setTimeout(() => {
+//     error.remove();
+//   }, 5000);
+// }
+
+// //Muestra un error en pantalla
+// function mostrarError(mensaje) {
+//   //const error = document.createElement("P");
+//   //error.textContent = mensaje;
+//   //error.classList.add("error");
+
+//   //formulario.appendChild(error);
+
+//   // Desaparezca despues de 5 segundos
+//   setTimeout(() => {
+//     error.remove();
+//   }, 5000);
+// }
