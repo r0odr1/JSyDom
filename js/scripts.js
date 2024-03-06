@@ -5,7 +5,26 @@ console.log(heading);
 
 // querySelectorAll : retorna de cero a todos los que concuerden con el selector
 const enlaces = document.querySelectorAll(".navegacion a");
-enlaces[0].textContent = 'Nuevo texto para Enlace'
+enlaces[0].textContent = "Nuevo texto para Enlace";
+enlaces[0].classList.add("nueva-clase");
 
 // getElementById
-const heading2 = document.getElementById('heading');
+//const heading2 = document.getElementById('heading');
+
+//Generar un nuevo enlace : se debe colocar en mayusculas para lo que se cree
+const nuevoEnlace = document.createElement("A");
+
+// Agregar ek href
+nuevoEnlace.href = "nuevo-enlace.html";
+
+// Agregar el
+nuevoEnlace.textContent = "Tienda Virtual";
+
+// Agregar la clase
+nuevoEnlace.classList.add("navegacion__enlace");
+
+// Agregarlo al documento
+const navegacion = document.querySelector(".navegacion");
+navegacion.appendChild(nuevoEnlace);
+
+console.log(nuevoEnlace);
